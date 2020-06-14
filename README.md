@@ -6,7 +6,7 @@ Application de test visant à m'améliorer sur Angular JS (sur fond de NodeJs)
 **Prérequis :**
 - Un serveur XAMPP(MariaDB);
 - NodeJS;
-- NPM;
+- Le gestionnaire de paquets **npm**;
 - La base de données : *BDD.sql* fournie
 
 ```bash
