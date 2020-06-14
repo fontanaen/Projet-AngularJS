@@ -1,0 +1,62 @@
+<div class="row" ng-controller='ctrl_details'>
+  <div class="col-7">
+    <!-- Languages-->
+    <div class="card mb-3 border-left-success text-gray-800 shadow">
+      <div class="card-header"><i class="fas fa-code"></i> <b>Programmation</b> </div>
+      <div class="card-body">
+        <ul ng-repeat='items in languages'>
+          <li>{{ items.nom }}<span ng-if='items.details'>{{ ' (' + items.details + ')'}}</span><br><br>
+            <div class="progress mb-4">
+              <div class="progress-bar bg-success" role="progressbar" style="width:{{ items.niv_maitrise*10 }}%"  aria-valuenow="{{ items.niv_maitrise*10 }}" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Softwares-->
+    <div class="card mb-3 border-left-danger text-gray-800 shadow">
+      <div class="card-header"><i class="fas fa-desktop"></i> <b>Logiciels</b> </div>
+      <div class="card-body">
+        <ul ng-repeat='items in softwares'>
+          <li>{{ items.nom }}<span ng-if='items.details'>{{ ' (' + items.details + ')'}}</span><br><br>
+            <div class="progress mb-4">
+              <div class="progress-bar bg-danger" role="progressbar" style="width:{{ items.niv_maitrise*10 }}%"  aria-valuenow="{{ items.niv_maitrise*10 }}" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-5" >
+    <!-- Data user-->
+    <div class="card mb-3 border-left-info text-gray-800 shadow">
+      <div class="card-header"><i class="fas fa-user"></i> <b>Informations complémentaires</b></div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-lg-7">
+            <p>Nom : {{ details[0].nom }}</p>
+            <p>Prénom : {{ details[0].prenom }}</p>
+            <p>Date de naissance : {{ details[0].date_naissance | date:'dd/MM/yyyy'}}</p>
+            <p>Tel : {{ details[0].tel }}</p>
+            <p>Em@il : <a href="mailto:{{ details[0].email }}">{{ details[0].email }}</a></p>
+          </div>
+          <div class="col-lg-5">
+            <img class="img-profile rounded-circle" width="70%" src="{{ details[0].img }}" alt="">
+          </div>
+        </div>
+        <hr>
+        <h5>Liens <i class="fas fa-link"></i></h5>
+        <br>
+        <div class="row">
+          <div class="col-5 mb-3" ng-repeat='items in links'>
+            <div>
+              <img src="{{ items.img }}" width="50px;" alt="">
+              <a href="{{items.lien}}">{{ items.nom }}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

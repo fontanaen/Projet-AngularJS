@@ -1,0 +1,52 @@
+
+<div class="row">
+  <div class="col-9">
+    <!-- Professionals experiences-->
+    <div class="card mb-3 border-left-success text-gray-800" id="exp_pro">
+      <div class="card-header"><i class="fas fa-code"></i> <b>Expériences professionelles</b></div>
+      <div class="card-body">
+        <ul ng-repeat='items in missions'>
+          <li><b>{{ items.nom_entreprise }}</b></li>
+          <ul>
+            <li>{{ items.lieu}}</li>
+            <li>Du : {{ items.debut | date:'dd/MM/yyyy' }} Au : {{ items.fin | date:'dd/MM/yyyy'}}</li>
+            <li>{{ items.details }}</li>
+          </ul>
+        </ul>
+      </div>
+    </div>
+
+    <!-- training-->
+    <div class="card mb-3 border-left-primary text-gray-800" id="training">
+      <div class="card-header"><i class="fas fa-book"></i> <b>Formations</b></div>
+      <div class="card-body">
+        <ul ng-repeat='items in formations'>
+          <li><b>{{ items.annee_obtention }} - {{ items.nom }} {{ items.option}}</b></li>
+          <ul>
+            <li>
+              {{ items.etablissement }}<span ng-if="items.etablissement && items.ville">{{', '+ items.ville }}</span><span ng-if="!items.etablissement && items.ville">{{ items.ville }}</span><span ng-if="(items.etablissement || items.ville) && items.details">{{', '+ items.details }}</span><span ng-if="(!items.etablissement && !items.ville) && items.details">{{ items.details }}</span>
+            </li>
+          </ul>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-3" style="position:sticky">
+    <!-- More details-->
+    <div class="card mb-3 border-left-warning text-gray-800">
+      <div class="card-header"><i class="fas fa-user"></i> <b>Informations complémentaires</b></div>
+      <div class="card-body">
+        <a href="#/details">Plus de détails</a>
+      </div>
+    </div>
+
+    <!--Documents-->
+    <div class="card mb5 border-left-danger text-gray-800">
+      <div class="card-header"><i class="fas fa-folder-open"></i> <b>Documents</b></div>
+      <div class="card-body">
+        <img src="img/pdf.png" width='40px' alt=""> -
+        <a href="/pdf/CV.pdf">Enzo Fontana - CV.pdf</a>
+      </div>
+    </div>
+  </div>
+</div>
