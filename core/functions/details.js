@@ -7,6 +7,6 @@ exports.getdetails = (req, res, db) => {
     let languages = await DB_Model.getlanguages();
     let softwares = await DB_Model.getlogiciels();
     let links = await DB_Model.getLinks();
-    res.send({details : details, languages : languages, softwares : softwares, links : links});
+    res.send({islog : req.session.islog, details : details, languages : languages, softwares : softwares, links : links});
   })();
 }

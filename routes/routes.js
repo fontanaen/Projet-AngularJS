@@ -1,11 +1,16 @@
 // Get JS files
 const details = require('../core/functions/details.js');
 const cv = require('../core/functions/curriculum-vitae.js');
+const login = require('../core/functions/login.js');
 
 exports.routes = (route, db) => {
 
+  // Paths
   let index_path = __dirname.replace('routes','') + "/views/index.html";
+  let login_path = __dirname.replace('routes','') + "/views/login.html";
+
   // Rounting for classic http requests
+    /* GET */
   route.get('/', (req, res) => {
     res.sendFile(index_path);
   });
@@ -18,6 +23,19 @@ exports.routes = (route, db) => {
   route.get('/details', (req, res) => {
     res.sendFile(index_path);
     res.redirect('/#/details');
+  });
+
+  route.get('/login', (req, res) => {
+    res.sendFile(login_path);
+  });
+
+    /* POST */
+  route.post('/login', (req, res) => {
+    login.connection(req, res, db);
+  });
+
+  route.post('/logout', (req, res) => {
+    login.logout(req, res, db);
   });
 
   // Routing for Angular

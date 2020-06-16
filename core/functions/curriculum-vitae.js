@@ -6,6 +6,6 @@ exports.getCV = (req, res, db) => {
   (async () => {
     let missions = await DB_Model.getMissions();
     let formations = await DB_Model.getFormations();
-    res.send({missions : missions, formations : formations});
+    res.send({islog : req.session.islog, missions : missions, formations : formations});
   })();
 }

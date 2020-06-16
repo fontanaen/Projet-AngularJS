@@ -3,6 +3,11 @@ class DB {
     this.db = db;
   }
 
+  async login_check(login, password) {
+    let query = 'SELECT id, nom, prenom, img FROM angular_test.users WHERE email="'+login+'" AND password = "'+ password + '"';
+    return this.doQuery(query);
+  }
+
   async getMissions() {
     let query = 'SELECT * FROM angular_test.exp_pro ORDER BY debut DESC';
     return this.doQuery(query);
@@ -14,7 +19,7 @@ class DB {
   }
 
   async getdetails() {
-    let query = 'SELECT * FROM angular_test.users WHERE id = 1';
+    let query = 'SELECT nom, prenom, date_naissance, tel, email, img FROM angular_test.users WHERE id = 1';
     return this.doQuery(query);
   }
 
